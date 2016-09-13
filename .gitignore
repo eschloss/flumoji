@@ -1,8 +1,5 @@
 *.out
 *.pyc
 *.db
-celerybeat-schedule
-openpds/settings.py
-openpds/wsgi.py
 .idea
 .DS_Store
