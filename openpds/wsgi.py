@@ -19,8 +19,8 @@ import sys
 import djcelery
 import django.conf
 
-activate_this = os.path.expanduser("/Users/ericschlossberg/Dropbox/Documents/workspace/gsk/pdsEnv/bin/activate_this.py")
-execfile(activate_this, dict(__file__=activate_this))
+#activate_this = os.path.expanduser("/Users/ericschlossberg/Dropbox/Documents/workspace/gsk/pdsEnv/bin/activate_this.py")
+#execfile(activate_this, dict(__file__=activate_this))
 
 djcelery.setup_loader()
 django.conf.ENVIRONMENT_VARIABLE = "DJANGO_PDS_SETTINGS_MODULE"
