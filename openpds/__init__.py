@@ -1,5 +1,5 @@
 #from backends.mongo import InternalDataStore
-from openpds import settings
+from openpds.settings import PDS_BACKEND
 import importlib
 from openpds.accesscontrol.internal import getAccessControlledInternalDataStore
 
@@ -11,7 +11,7 @@ def class_for_name(module_name, class_name):
     return c
 
 def getInternalDataStore(profile, app_id, lab_id, token):
-    module = settings.PDS_BACKEND["ENGINE"]
+    module = PDS_BACKEND["ENGINE"]
     c = class_for_name(module, "getInternalDataStore")
     return getAccessControlledInternalDataStore(c(profile, app_id, lab_id, token))
 
