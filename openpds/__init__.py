@@ -1,5 +1,5 @@
 #from backends.mongo import InternalDataStore
-import settings
+from openpds import settings
 import importlib
 from openpds.accesscontrol.internal import getAccessControlledInternalDataStore
 
