@@ -7,6 +7,7 @@ except:
     BUILD = 'DEV'
 IS_PRODUCTION_SERVER = (BUILD == 'PRODUCTION')
 IS_STAGING_SERVER = (BUILD == 'STAGING')
+IS_DEV_SERVER = not IS_STAGING_SERVER and not IS_PRODUCTION_SERVER
 DEBUG = not IS_PRODUCTION_SERVER
 
 # Standard Django settings for turning on debug messages
@@ -43,7 +44,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 # Standard Django database specification. See Django docs for further information.
-if DEBUG:
+if IS_DEV_SERVER:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3', 
