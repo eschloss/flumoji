@@ -6,17 +6,32 @@ try:
 except:
     BUILD = 'DEV'
 IS_PRODUCTION_SERVER = (BUILD == 'PRODUCTION')
+IS_STAGING_SERVER = (BUILD == 'STAGING')
 DEBUG = not IS_PRODUCTION_SERVER
 
 # Standard Django settings for turning on debug messages
 TEMPLATE_DEBUG = DEBUG
 
-
-# Used to specify the registry server to use for authorization
-REGISTRY_SERVER='https://flufuture-registry.herokuapp.com'
-
-# Deprecated: Used to specify the default PDS url for aggregate computation
-DEFAULT_PDS_URL = 'https://flufuture-openpds.herokuapp.com'
+# Note: these should be stored in config variables. Leaving them here for now for clarity.
+if IS_PRODUCTION_SERVER:
+    # Used to specify the registry server to use for authorization
+    REGISTRY_SERVER='https://flumoji-registry-production.herokuapp.com'
+    
+    # Deprecated: Used to specify the default PDS url for aggregate computation
+    DEFAULT_PDS_URL = 'https://flumoji-pds-production.herokuapp.com'
+elif IS_STAGING_SERVER:
+    # Used to specify the registry server to use for authorization
+    REGISTRY_SERVER='https://flufuture-registry.herokuapp.com'
+    
+    # Deprecated: Used to specify the default PDS url for aggregate computation
+    DEFAULT_PDS_URL = 'https://flufuture-openpds.herokuapp.com'
+else:
+    # Used to specify the registry server to use for authorization
+    REGISTRY_SERVER='localhost:8000'
+    
+    # Deprecated: Used to specify the default PDS url for aggregate computation
+    DEFAULT_PDS_URL = 'localhost:8002'
+    
 
 # Specifies where files posted to connectors will be placed while inserting into the PDS
 SERVER_UPLOAD_DIR="/Users/ericschlossberg/Dropbox/Documents/workspace/gsk/pdsEnv"
@@ -221,3 +236,6 @@ handler.setFormatter(formatter)
 logger.addHandler(handler)
 
 GCM_API_KEY = "AIzaSyBTGmBjzM9_CETLxU3YEbtWIS_OUGWHr0s"
+
+MONGODB_HOST = os.environ['MONGODB_HOST']
+MONGODB_PORT = int(os.environ['MONGODB_PORT'])
