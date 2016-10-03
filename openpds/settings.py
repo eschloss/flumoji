@@ -16,16 +16,16 @@ TEMPLATE_DEBUG = DEBUG
 # Note: these should be stored in config variables. Leaving them here for now for clarity.
 if IS_PRODUCTION_SERVER:
     # Used to specify the registry server to use for authorization
-    REGISTRY_SERVER='https://flumoji-registry-production.herokuapp.com'
+    REGISTRY_SERVER='flumoji-registry-production.herokuapp.com'
     
     # Deprecated: Used to specify the default PDS url for aggregate computation
-    DEFAULT_PDS_URL = 'https://flumoji-pds-production.herokuapp.com'
+    DEFAULT_PDS_URL = 'flumoji-pds-production.herokuapp.com'
 elif IS_STAGING_SERVER:
     # Used to specify the registry server to use for authorization
-    REGISTRY_SERVER='https://flufuture-registry.herokuapp.com'
+    REGISTRY_SERVER='flufuture-registry.herokuapp.com'
     
     # Deprecated: Used to specify the default PDS url for aggregate computation
-    DEFAULT_PDS_URL = 'https://flufuture-openpds.herokuapp.com'
+    DEFAULT_PDS_URL = 'flufuture-openpds.herokuapp.com'
 else:
     # Used to specify the registry server to use for authorization
     REGISTRY_SERVER='localhost:8000'
