@@ -54,28 +54,21 @@ if DEBUG:
             'PORT': '',      
         }
     }
-    # Specifies the backend storage database for personal data
-    PDS_BACKEND = {
-        "ENGINE": 'openpds.backends.sqlite',
-        "USER": "",
-        "PASSWORD": "",
-        "HOST": "",
-        "PORT": ""
-    }
 else:
     import dj_database_url
     DATABASES = {}
     DATABASES['default'] =  dj_database_url.config()
     DATABASES['default']['CONN_MAX_AGE'] = None
     #PDS_BACKEND =  dj_database_url.config()
-    # Specifies the backend storage database for personal data
-    PDS_BACKEND = {
-        "ENGINE": 'openpds.backends.sqlite',
-        "USER": "",
-        "PASSWORD": "",
-        "HOST": "",
-        "PORT": ""
-    }
+
+# Specifies the backend storage database for personal data
+PDS_BACKEND = {
+    "ENGINE": 'openpds.backends.mongo',
+    "USER": "",
+    "PASSWORD": "",
+    "HOST": "",
+    "PORT": ""
+}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
