@@ -165,9 +165,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'djcelery',
     'openpds.core',
     'openpds.accesscontrol',
-    'djcelery',
     'kombu.transport.django',
     #'openpds.visualization',
     # Uncomment the next line to enable the admin:
@@ -177,14 +177,21 @@ INSTALLED_APPS = (
 )
 import celery_settings
 
+"""
 CELERY_IMPORTS = celery_settings.CELERY_IMPORTS
 BROKER_URL = celery_settings.BROKER_URL
 CELERYBEAT_SCHEDULE = celery_settings.CELERYBEAT_SCHEDULE
+"""
 
 import djcelery
-
 djcelery.setup_loader()
 
+CELERYD_MAX_TASKS_PER_CHILD = 150
+BROKER_POOL_LIMIT = 3
+
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
 
 
 # A sample logging configuration. The only tangible logging
