@@ -1,6 +1,7 @@
 openPDS - Personal Data Store / Server
 ======================================
 
+
 The personal data store component of [openPDS](http://openpds.media.mit.edu/) handles storage of raw personal data, provides endpoints for writing such data via connectors, a computation engine to perform analysis on the raw data, as well as storage and REST endpoints for results of such analysis (answers to questions, in openPDS lingo).
 
 __Please note__: openPDS requires a separate registry server for account management and to act as an OAuth 2.0 provider. This can be found at https://github.com/HumanDynamics/openPDS-RegistryServer. If you run your own registry server, the domain for your registry server must be provided to the openPDS setup script.
